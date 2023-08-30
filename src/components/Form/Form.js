@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { TextField, Typography, Paper, IconButton } from '@material-ui/core';
-import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
 import { useHistory } from 'react-router-dom';
@@ -20,6 +18,21 @@ const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
   const history = useHistory();
+
+  // icons imported from primer style -> https://primer.style/design/foundations/icons
+
+  const UpArrowIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+      <path d="M3.47 7.78a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0l4.25 4.25a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018L9 4.81v7.44a.75.75 0 0 1-1.5 0V4.81L4.53 7.78a.75.75 0 0 1-1.06 0Z"></path>
+    </svg>
+  );
+
+  const DownArrowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+    <path d="M13.03 8.22a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L3.47 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l2.97 2.97V3.75a.75.75 0 0 1 1.5 0v7.44l2.97-2.97a.75.75 0 0 1 1.06 0Z"></path>
+  </svg>
+);
+
 
   const clear = useCallback(() => {
     setCurrentId(0);
@@ -69,7 +82,7 @@ const Form = ({ currentId, setCurrentId }) => {
   return (
     <Paper className={classes.paper} elevation={6}>
       <IconButton color="primary" onClick={handleToggleForm}>
-        {formVisible ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+      {formVisible ? <UpArrowIcon /> : <DownArrowIcon />}
       </IconButton>
       {formVisible && (
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>

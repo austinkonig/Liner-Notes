@@ -3,14 +3,11 @@ import WaveSurfer from 'wavesurfer.js';
 import { CardActions, Button } from '@material-ui/core/';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import PlayCircleFilledWhiteOutlinedIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
-import PauseCircleOutlineOutlinedIcon from '@mui/icons-material/PauseCircleOutlineOutlined';
 import { useDispatch } from 'react-redux';
 import { saveAs } from 'file-saver';
 
 import { deletePost, likePost } from '../../../actions/posts';
 import useStyles from './styles';
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import './Post.css';
 
 const Post = ({ post, setCurrentId }) => {
@@ -26,6 +23,30 @@ const Post = ({ post, setCurrentId }) => {
   const pstTimeOptions = { timeZone: 'America/Los_Angeles' };
   const pstTime = new Date(post.createdAt).toLocaleTimeString('en-US', pstTimeOptions);
 
+  // icons imported from primer style -> https://primer.style/design/foundations/icons
+
+  const FileDownloadIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+      <path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z"></path>
+      <path d="M7.25 7.689V2a.75.75 0 0 1 1.5 0v5.689l1.97-1.969a.749.749 0 1 1 1.06 1.06l-3.25 3.25a.749.749 0 0 1-1.06 0L4.22 6.78a.749.749 0 1 1 1.06-1.06l1.97 1.969Z"></path>
+    </svg>
+  );
+
+  const PlayIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+      <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"></path>
+    </svg>
+  );
+
+  const PauseIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+      <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm224-72V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24zm112 0V328c0 13.3-10.7 24-24 24s-24-10.7-24-24V184c0-13.3 10.7-24 24-24s24 10.7 24 24z"/>
+    </svg>
+  );
+  
+  
+  
+  
   const handleLike = () => {
     dispatch(likePost(post._id));
   };
@@ -115,7 +136,7 @@ const Post = ({ post, setCurrentId }) => {
       <div ref={waveformRef} className={classes.waveform} onClick={handleWaveformClick} />
       <CardActions className={classes.cardActions}>
         <Button size="small" color="primary" onClick={handlePlayReplay}>
-          {isPlaying ? <PauseCircleOutlineOutlinedIcon fontSize="small" /> : <PlayCircleFilledWhiteOutlinedIcon fontSize="small" />}
+          {isPlaying ? <PauseIcon fontSize="small" /> : <PlayIcon fontSize="small" />}
         </Button>
         <Button size="small" color="primary" onClick={handleLike}>
           <ThumbUpAltIcon fontSize="small" />
