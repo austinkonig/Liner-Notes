@@ -1,0 +1,21 @@
+.formButton {
+    color: rgb(0, 0, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    .formButton {
+        color: rgb(0, 0, 0);
+    }
+    .footer {
+        filter: invert(100%);
+    }
+}
+
+.footer {
+    color: rgb(0, 0, 0);
+    position: fixed;
+    opacity: 33%;
+    text-decoration: none;
+    font-size: 12px;
+}
+
