@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "https://liner-notes-api.onrender.com/",
   "dependencies": {
+    "@chakra-ui/color-mode": "^2.2.0",
     "@chakra-ui/icons": "^2.1.0",
     "@chakra-ui/system": "^2.6.0",
     "@emotion/react": "^11.11.1",
