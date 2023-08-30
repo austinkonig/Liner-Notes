@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'https://liner-notes-api.onrender.com/' });
+const API = axios.create({ baseURL: 'https://cute-jade-earthworm-tutu.cyclic.app/' });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
