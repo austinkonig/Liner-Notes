@@ -2,7 +2,7 @@
   "name": "mern-stack-client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://cute-jade-earthworm-tutu.cyclic.app/",
+  "proxy": "https://liner-notes-api.onrender.com/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
