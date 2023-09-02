@@ -19,7 +19,6 @@ const Post = ({ post, setCurrentId }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
-  const pstTimeOptions = { timeZone: 'America/Los_Angeles' };
 const pstTime = new Date(post.createdAt).toLocaleDateString('en-US', {
   year: 'numeric',
   month: '2-digit',
