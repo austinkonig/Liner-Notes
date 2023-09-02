@@ -127,7 +127,6 @@ const pstTime = new Date(post.createdAt).toLocaleDateString('en-US', {
   };
 
   const isUserAuthorized = user?.result?.googleId === post?.creator || user?.result?._id === post?.creator;
-
   const truncatedTitle = post.title.length > 22 ? post.title.slice(0, 22) + '...' : post.title;
 
   return (
