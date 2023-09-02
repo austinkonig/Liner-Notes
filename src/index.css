@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
+body {
+    background-color: #ffffff;
+    animation: unblurEffect 0.3s ease-in-out 10s both;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #212121;
+    }
+}
+
+
+* {
+    font-family: 'Courier Prime', monospace !important;
+}
